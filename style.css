@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,200;0,600;1,400&display=swap');
+
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    padding: 35px;
+    background-color: rgb(22, 21, 21);
+    color: rgb(255, 226, 159);
+    font-family: 'Josefin Sans', sans-serif;
+}
+svg {
+    height: 280px;
+    width: 280px;
+}
+h1{
+    margin: 15px 0;
+    font-weight: 700;
+    font-size: 3rem;
+    text-align: center;
+}
+
+/* CLock Style */
+
+.clock {
+    padding: 3px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-weight: bold;
+    height: 30%;
+    font-size: 3.8rem;
+}
+
+/*  Progress Ring */
+
+.progress-ring {
+    position: absolute;
+    top: 13%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+
+.progress-ring__circle {
+    transition: 0.5s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: rgb(255, 226, 159);
+}
+
+.danger {
+    stroke: rgb(223, 39, 39);
+    animation: pulse 0.9s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: rotate(-90deg) scale(1);
+    }
+    50% {
+        transform: rotate(-90deg) scale(1.05);
+    }
+    75% {
+        transform: rotate(-90deg) scale(0.8);
+    }
+    
+}
+
+.break {
+    background: none;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: underline;
+}
+/* Input */
+input {
+    transition: 0.5 ease-in-out;
+    margin: 15px 0;
+    font-size: 1.3rem;
+    text-align: center;
+    appearance: textfield;
+    border-radius: 50%;
+    color: white;
+    width: 30%;
+    cursor: grabbing;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.825);
+    border: none;
+}
+
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+  }
+
+  input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid rgb(255, 226, 159);
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -5px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+  }
+
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 7px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #000000;
+    border-radius: 10px;
+    border: 0.2px solid #010101;
+  }
+  
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: rgb(255, 226, 159);
+  }
+  
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    margin: 35px 0;
+}
+hr{
+    margin-bottom: 20px;
+}
+.btn-group button{
+    border-radius: 50%;
+    padding: 25px;
+}
+button {
+    margin: 5px;
+    background-color: rgb(255, 226, 159);
+    padding: 10px;
+    border: solid 1px white;
+    font-size: 18px;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.hoverize {
+    background-color: rgb(255, 226, 159);
+}
+
+button:hover, 
+a:hover {
+    filter: brightness(50%);
+    transform: translateY(-5px);
+}
+/* Form */
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+form button {
+    border-radius: 10px;
+    font-weight: 700;
+    width: 80%;
+    margin-left: 35px;
+}
+form button:hover{
+    filter: brightness(50%);
+    transform: translateY(-5px);
+}
+output {
+    margin-left: 25px;
+    font-size: 1.5rem;
+}
+
+form span {
+    margin: 0 0 25px 25px;
+}
+
+.pause, .reset {
+    background: rgba(255, 255, 255, 0);
+    box-shadow: rgba(193, 193, 193, 0.5);
+    color: white;
+    border: solid 1px white;
+}
+
+/* BTN */
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px;
+    height: 40px;
+}
+/* Timer */
+.clock{
+    position: relative;
+}
+.time{
+    position: relative;
+    padding: 40px;
+    display: flex;
+}
+/* Media Queries */
+
+@media screen and (min-width: 768px) {
+    body{
+        display: grid;
+        grid-template-areas: "head head" "clock form" "btns ji";
+    }
+    .btn-group {
+        grid-area: btns;
+        justify-content: center;
+    }
+    .clock {
+        grid-area: clock;
+    }
+    h1 {
+        grid-area: head;
+
+        align-self: center;
+    }
+    form {
+        align-self: center;
+        justify-self: center;
+        grid-area: form;
+        width: 50%;
+        justify-content: space-around;
+    }
+ 
+
+}
+
+@media screen and (max-width: 375px){
+    .progress-ring {
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    svg {
+        height: 120px;
+        width: 120px;
+    }
+}
+/* Liks profile */
+
+.mylinks {
+    color: #ffffff;
+    display: flex;
+    margin: 0 20px;
+    justify-content: end;
+}
+
+.mylinks a {
+    color: #ffffff;
+    cursor: pointer;
+    margin-left: 10px;
+    text-align: center;
+    padding: 15px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+a{
+    all: unset;
+}

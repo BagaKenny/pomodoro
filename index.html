@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="header">
+
+        <h1 class="header">Pomodoro</h1>
+        
+        <div class="mylinks">
+            <a href="https://github.com/BagaKenny" target="_blank">
+              <i class="fab fa-github fa-lg icon"></i>
+              <p>My Github</p>
+            </a>
+    
+            <hr />
+    
+            <a href="https://codepen.io/sierra_leone" target="_blank">
+              <i class="fab fa-codepen fa-lg icon" title="My Codepen"> </i>
+              <p>My Codepen</p>
+            </a>
+        </div>
+        <hr>
+    </div>
+
+    <!-- Clock -->
+    <div class="clock">
+        <div class="time">
+            <div class="mins">0</div>
+            <div>:</div>
+            <div class="secs">00</div>
+        </div>
+            
+        <audio src="./Src/service-bell-ring-14610.mp3"></audio>
+
+        <svg class="progress-ring">
+            <circle
+            class="progress-ring__circle"
+            stroke-width="2"
+            fill="transparent"
+            r="80"
+            cx="90"
+            cy="90"
+            />
+        </svg>
+    </div>
+    <div class="btn-group">
+        <div class="btn">
+            <button class="start"><i class="fa fa-play" aria-hidden="true"></i>
+            </button> 
+            <p>Play</p>
+        </div>
+        <div class="btn">
+            <button class="reset"><i class="fa fa-undo" aria-hidden="true"></i>
+            </button> 
+            <p>Reset</p>
+        </div>
+        <div class="btn">
+            <button class="pause"><i class="fa fa-pause" aria-hidden="true"></i>
+            </button> 
+            <p>Pause</p>
+        </div>
+    </div>
+    
+    <form action=".">
+        <div>    Set Time and Save </div>
+        <input type="range" value="0" id="focusTime" step="5" oninput="this.nextElementSibling.value = this.value"/> <output>  </output> <span>Minutes</span>
+        <input type="range" value="0" id="breakTime" step="5" oninput="this.nextElementSibling.value = this.value"/>
+        <output> </output>  <span>Seconds</span>
+        <button type="submit"> Save </button>
+    </form>
+
+      <script src="app.js"></script>
+      <script src="timer.js"></script>
+      <script src="progress.js"></script>
+</body>
+</html>
